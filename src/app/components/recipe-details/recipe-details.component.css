@@ -1,0 +1,184 @@
+#RDContainer{
+    display: flex;
+    position: fixed;
+    top: 0;
+    z-index: 3;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(249, 246, 240, 0.64);
+}
+
+#RDWindow {
+    background-color: #faf7f2;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    border-radius: 2rem;
+    width: 750px;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}
+
+#RDWindow a{
+    text-decoration: none!important;
+}
+
+#RDMainContainer {
+    border-top-left-radius: 2rem;
+    border-bottom-left-radius: 2rem;
+    background-color: #ED8B5E;
+    color: #FCF3E9;
+    grid-column: 1/3;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+#RDMainTextContainer > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 180px;
+    padding: 0rem 0.5rem;
+}
+
+
+#RDMainContainer span {
+    margin-top: 0.3rem;
+    text-align: center;
+}
+
+.mainTitle{
+    font-weight: 600;
+}
+
+#RDImage {
+    width: 100%;
+    max-height: 10rem;
+    object-fit: cover;
+    border-top-left-radius: 2rem;
+}
+
+#RDDetailsContainer {
+    grid-column: 3/8;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+
+#RDSummaryContainer {
+    padding: 0.1rem 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    color: #575757;
+}
+
+.RDDetailsTitle {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #ED8B5E;
+}
+
+#RDSummaryContainer a{
+    text-decoration: none;
+    color: #575757;
+}
+
+
+
+#RDInstructionsContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    color: #575757;
+}
+
+#RDInstructionsContainer ol{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin: 1rem;
+    padding: 0rem;
+}
+
+#RDInstructionsContainer li::marker{
+    font-weight: 600;
+}
+
+#RDScoresContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#RDScoresContainer > div{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+#RDScoresContainer div{
+    margin: 0.3rem;
+}
+
+
+.scoreIcon{
+    width: 1rem;
+}
+
+.healthScoreIcon{
+    width: 1rem;
+}
+
+#RDHomeLink {
+    border-radius: 1rem;
+    background-color: #ED8B5E;
+    color: #FCF3E9 !important;
+    font-weight: 600;
+    align-self: flex-end;
+    padding: 0.2rem 0.5rem;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px;
+}
+
+#RDHomeLink:hover {
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 5px 15px;
+}
+
+#NoDetaiResponse {
+    background-color: #faf7f2;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    border-radius: 1rem;
+    padding: 4rem;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+}
+
+#NoDetaiResponse > span {
+    text-align: center;
+    color: #ED8B5E;
+    font-size: 2.5rem;
+    font-weight: 500;
+    text-shadow: 0px 4px 3px rgba(0,0,0,0.1),
+             0px 8px 13px rgba(0,0,0,0.1),
+             0px 18px 23px rgba(0,0,0,0.1);
+}
+
+#NoDetaiResponse > a {
+    align-self: center;
+    text-decoration: none;
+    margin-top: 1rem;
+    font-size: 2rem;
+}

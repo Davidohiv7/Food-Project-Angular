@@ -1,0 +1,10 @@
+#HTitle {
+    font-size: 3.7rem;
+    margin: 4rem 0rem 0rem 0rem;
+    color: #575757;
+    width: 38rem;
+}
+
+#HTitle > span {
+    color: #ED8B5E;
+}

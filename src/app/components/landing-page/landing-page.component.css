@@ -1,0 +1,107 @@
+
+#LPContainer {
+    display: flex;
+    justify-content: center;
+}
+
+#LPWindow {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    border-radius: 3rem;
+    max-width: 95%;
+    width: 1000px;
+    height: 600px;
+    opacity: 1;
+	animation-name: fadeInOpacity;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-duration: 1s;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+
+@keyframes fadeInOpacity {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+#LPHeader {
+    background-color: #e26a32;
+    height: 8rem;
+    border-top-left-radius: 3rem;
+    border-top-right-radius: 3rem;
+    display: flex;
+    align-items: center;
+}
+
+#LPHeader > span{
+    text-shadow: 0px 4px 3px rgba(0,0,0,0.1),
+            0px 8px 13px rgba(0,0,0,0.1),
+            0px 18px 23px rgba(0,0,0,0.1);
+}
+
+#LPTitle1 {
+    font-size: 3rem;
+    color: #FCB86F;
+    margin-left: 3rem;
+}
+
+#LPTitle2 {
+    font-size: 3rem;
+    color: #f5d3af;
+    margin-left: 0.8rem;
+}
+
+#LPBody {
+    height: 100%;
+    background-image: url("../../../assets//img//landingPageBackground.jpg"); 
+    background-size:     cover;
+    background-repeat:   no-repeat;
+    background-position: center center;
+    border-bottom-left-radius: 3rem;
+    border-bottom-right-radius: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#LPDescription{
+    display: flex;
+    padding: 1rem;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    border-radius: 1rem;
+    margin-top: 1rem;
+    color: #492F37;
+    font-size: 1.5rem;
+    background-color: rgba(255, 243, 229, 0.2);
+    transform: translate(-0.9rem, -7px);
+}
+
+#LPHomeButton{
+    text-decoration: none;
+    font-size: 2rem;
+    color: #FFE0C1;
+    background-color: #e26a32;
+    border-radius: 1rem;
+    padding: 0.5rem 1rem;
+    margin-bottom: 2rem;
+    border: none; 
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+
+#LPHomeButton:hover {
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    margin-bottom: 2rem;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.7) 0px 19px 38px, rgba(0, 0, 0, 0.5) 0px 15px 12px;
+}

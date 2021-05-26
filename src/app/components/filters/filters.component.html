@@ -1,0 +1,41 @@
+<div id='FiltersContainer'>
+    <div id='OrganizeContainer'>
+
+        <span id='OrganizeTitle'>Organize the recipes</span>
+
+        <div id='ByTitleContainer'>
+            <span>By title</span>
+            <div class='FilterButtonContainer'>
+                <button value='title' (click)="SortNormal($event)">A - Z</button>
+                <button value='title' (click)="SortReverse($event)">Z - A</button>
+            </div>
+        </div>
+
+        <div id='ByScoreContainer'>
+            <span>By score</span>
+            <div class='FilterButtonContainer'>
+                <button value='spoonacularScore' (click)="SortReverse($event)">Max - Min</button>
+                <button value='spoonacularScore' (click)="SortNormal($event)">Min - Max</button> 
+            </div>
+        </div>
+
+        <div>
+            <span>By Healthiness</span>
+            <div class='FilterButtonContainer'>
+                <button value='healthScore' (click)="SortReverse($event)">Max - Min</button>
+                <button value='healthScore' (click)="SortNormal($event)">Min - Max</button>
+            </div>
+        </div>
+    </div>
+
+    <div id='FilterContainer'>
+        <span>Filter recipes by diet type</span>
+        <select (change)="FilterRecipes($event)" id='DropDownListRecipes' name="select">
+            <option value='No diet selected'>No diet selected</option>
+            <option *ngFor="let diet of dietTypes$" value={{diet.name}} >{{diet.name | titlecase}}</option>
+        </select>
+    </div>
+
+    <button id='GetAllButton'>Get all recipes</button>
+
+</div>

@@ -1,0 +1,3 @@
+<div id='pagesContainer'>
+    <button id="{{pageNumber === pageNumber$ ? 'PageSelectedButton': ''}}" class='PageButton' *ngFor="let pageNumber of pagesNumberArray$" (click)="onClick(pageNumber)">{{pageNumber}}</button>
+</div>

@@ -1,0 +1,23 @@
+<app-navigation-bar></app-navigation-bar>
+
+<div id='HContainer'>
+
+    <div id='HLeft'>
+        <app-home-title></app-home-title>
+        <app-searchbar></app-searchbar>
+    </div>
+
+    <div id='HRight'>
+        <img id='img1' src='../../../assets/img/homeRightImg.png' alt='img1' />
+    </div>
+
+    <div id='HRecipesContainer'>
+        <app-filters></app-filters>
+
+        <div id='HCardsPagesContainer'>
+            <app-recipe-cards></app-recipe-cards>
+            <app-pages></app-pages>
+        </div>
+    </div>
+    <app-recipe-details *ngIf="paramsID"></app-recipe-details>
+</div>

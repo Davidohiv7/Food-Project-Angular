@@ -1,0 +1,16 @@
+<div class='RecipeCardContainer' key={recipe.id} >
+    <a class='Link' routerLink={{detailsURL}}>
+        <img class='RecipeCardImage' src={{recipe.image}} alt={recipe.title}/>
+        <div class='RecipeCardTitle'>
+            <span>Recipe name</span>
+            {{recipe.title}}
+            </div>
+        <div class='RecipeCardDiets'>
+            <span>Diet types</span>
+            {{dietsSign}}
+        </div>
+        <div class='RecipeCardID'>
+            ID: {{recipe.id}}
+        </div>
+    </a>
+</div>

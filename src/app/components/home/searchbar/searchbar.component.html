@@ -1,0 +1,13 @@
+<!-- Los eventos los declaro entre parentesis -->
+<div id='SBContainer'>
+    <form id='SB'>
+        <div id='SBinputContainer'>
+            <label id='SBtitle'>RECIPE NAME</label>
+            <!-- Lo de ngModel es para sincronizar el formulario con las variables declaradar en el component.ts -->
+            <input id='SBInput' type="text" name="HSearchBar"  [(ngModel)]='searchedRecipe' placeholder='Search a recipe'/>
+        </div>
+        <div id='SBButtonContainer'>
+            <button (click)="onClick()" id='SBButton'>Search</button>
+        </div>
+    </form>
+</div>

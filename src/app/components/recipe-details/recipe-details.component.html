@@ -1,0 +1,67 @@
+<div id='RDContainer' *ngIf="recipeDetails">
+    
+    <div *ngIf="!errorMesage" id='RDWindow'>
+        <div id='RDMainContainer'>
+            <img id='RDImage' src={{recipeDetails.image}} alt={{recipeDetails.title}}/>
+
+            <div id='RDMainTextContainer'>
+
+                <div id='RDTitle'>
+                    <span class='mainTitle'>Recipe Name</span>
+                    <span>{{recipeDetails.title}}</span>
+                </div>
+
+                <div id='RDDiets'>
+                    <span class='mainTitle' >Diet types</span>
+                    <span>{{dietsSign}}</span>
+                </div>
+
+            </div>
+            
+        </div>
+        
+        <div id='RDDetailsContainer'>                  
+            <div id='RDSummaryContainer'>
+                <a id='RDHomeLink' routerLink='/home'>Home</a>
+                <span class='RDDetailsTitle'>Summary</span>
+                <p [innerHTML]="recipeDetails.summary"></p>
+            </div>
+
+            <div id='RDInstructionsContainer'>
+                <span class='RDDetailsTitle'>Instructions</span>
+                <p *ngIf="recipeDetails.instructions" [innerHTML]="recipeDetails.instructions"></p>
+                <p *ngIf="!recipeDetails.instructions" >No instructions provided</p>
+            </div>
+
+            <div id='RDScoresContainer'>
+                <div>
+                    <span class='RDDetailsTitle'> Recipe score (1-10):</span>
+                    <div>
+                        <!-- Aqui va el iterador para crear varios iconos -->
+                        <img class='scoreIcon' src='../../../assets/img/icon/fireIcon.png' *ngFor="let number of scoreArray" id="{{'scoreIcon' + number}}" alt='icon' />
+                    </div>
+                    
+                </div>
+
+                <div>
+                    <span class='RDDetailsTitle'>Helthiness score (1-10):</span>
+                    <div>
+                        <!-- Aqui va el iterador para crear varios iconos -->
+                        <img class='healthScoreIcon' src='../../../assets/img/icon/redbellpeppericon.png' *ngFor="let number of healthScoreArray" id="{{'healthScoreIcon' + number}}" alt='icon' />
+                    </div>
+                </div>
+       
+            </div>
+
+        </div>
+
+    </div> 
+
+    <div *ngIf="errorMesage" id='NoDetaiResponse'>
+        <span>{{errorMesage}}</span>
+        <a id='RDHomeLink' routerLink='/home'>Home</a>
+    </div>
+
+</div>
+
+
