@@ -38,3 +38,10 @@
 #HCardsPagesContainer{
     grid-column: 2/7;
 }
+
+#loadingCards{
+    margin-top: 5rem;
+    grid-column: 2/7;
+    justify-self: center;
+    width: 15rem;
+}

@@ -1,0 +1,87 @@
+
+<form id='FormContainer' [formGroup]="newRecipeForm" (ngSubmit)="onSubmit()">
+
+    <div id='FLeft'>
+        <span>Share your recipe</span>
+    </div>
+
+    <div id='FRight'>
+
+        <span>Fill it!</span>
+
+        <div id='RecipeNameContainer'>
+            <label>Recipe name</label>
+            <input type="text" formControlName="title" placeholder="Your recipe name..."/>
+        </div>
+
+        <div id='SummaryContainer'>
+            <label>Summary:</label>
+            <textarea formControlName="summary" placeholder="A brief description of your recipe..."></textarea>
+        </div>
+
+        <div id='InstructionsContainer'>
+            <label>Instructions:</label>
+            <textarea formControlName="instructions" placeholder="The steps to cook yor recipe..."></textarea>
+        </div>
+
+        <div id='ScoreContainer'>
+            <span>Score:</span>
+            <div id='ScoreContainerIconsContainer'>
+                <img 
+                *ngFor="let number of scoresArray"
+                [ngClass]="number <= newRecipeForm.value.spoonacularScore ? 'ScoreSelectedButton' : undefined"
+                src="../../../../assets/img/icon/fireIcon.png" 
+                alt="scoreIcon"
+                (click)="setScore(number)"
+                />
+            </div>
+        </div>
+
+        <div id='HealthinessScoreContainer'>
+            <span>Healthiness score:</span>
+            <div id='HealthinessScoreContainerIconsContainer'>
+                <img 
+                *ngFor="let number of scoresArray"
+                [ngClass]="number <= newRecipeForm.value.healthScore ? 'HealthScoreSelectedButton' : undefined"
+                src="../../../../assets/img/icon/redbellpeppericon.png" 
+                alt="Health Icon"
+                (click)="setHealthScore(number)"
+                />
+            </div>
+        </div>
+
+        <div id='ImageContainer'>
+
+            <span>Image:</span>
+            <div id='ImageInputContainer'>
+                <input  type="text" formControlName="image" placeholder="URL image..."/>
+                <!-- Aqui debo poner el onclick que renderiza la imagen del img de abajo -->
+                <img name='ImagePreviewButton' (click)="setImagePreview(newRecipeForm.value.image)" src="../../../../assets/img/icon/searchIIcon.webp" alt="searchIcon"/>
+            </div>
+
+            <img [src]="imagePeviewLink" alt="Paste a valid URL and click the button to see the preview"/>
+
+        </div>
+
+        <div id='SelectContainer'>
+            <span>Select diet types:</span>
+            <select (change)="mangeDietTypes($event)" id='FormDropDownListRecipes' name="formSelect">
+                <option value='-Select a diet'>-No diet type selected</option>
+                <option  *ngFor="let diet of dietTypes$" [value]='diet.name'>{{diet.name | titlecase}}</option>
+            </select>
+
+            <ul>
+                <li *ngFor="let type of newRecipeForm.value.types">{{type | titlecase}}</li>
+            </ul>
+
+        </div>
+
+    <!-- ----------- ESTO SIEMPRE IRA ABAJO ----------- -->
+        <div id='SubmitContainer'>
+            <!-- Tener claro que en el de React esto es un input, para el CSS -->
+            <button type="submit">Send your recipe</button>
+        </div>  
+    </div>
+
+
+</form>

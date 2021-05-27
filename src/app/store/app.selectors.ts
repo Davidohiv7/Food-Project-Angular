@@ -32,3 +32,12 @@ export const getDietTypesSelector = createSelector(
     getRecipesState,
     (state: appState) => state.typesList
 );
+
+export const getLoadingSelector = createSelector(
+    getRecipesState,
+    (state: appState) => state.loading
+);
+export const getSignSelector = createSelector(
+    getRecipesState,
+    (state: appState) => state.searchSign
+);

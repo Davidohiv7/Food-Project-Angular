@@ -63,3 +63,53 @@
     cursor: pointer;
     box-shadow: rgba(50, 50, 93, 0.4) 0px 6px 12px -2px, rgba(0, 0, 0, 0.5) 0px 3px 7px -3px;
 }
+
+#SearchSign{
+    background-color: #fcb86fec;
+    z-index: 1;
+    width: 410px;
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    color: #FFFCF9;
+    font-weight: 700;
+    border-radius: 0.3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    transform: translate(0, 4rem);
+    animation-name: fadeInOpacity;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-duration: 0.2s;
+    box-shadow: rgba(50, 50, 93, 0.4) 0px 6px 12px -2px, rgba(0, 0, 0, 0.5) 0px 3px 7px -3px;
+}
+
+@keyframes fadeInOpacity {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+#SearchSign > span {
+    padding: 0rem 1rem 1rem 1rem;
+    text-align: center;
+}
+
+#SearchSign > button {
+    background-color: #ED8B5E;
+    border: none;
+    border-radius: 0.3rem;
+    padding: 0.1rem 0.3rem;
+    align-self: flex-end;
+    color: #FFFCF9;
+    box-shadow: rgba(50, 50, 93, 0.2) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
+#SearchSign > button:hover {
+    cursor: pointer;
+    box-shadow: rgba(50, 50, 93, 0.7) 0px 6px 12px -2px, rgba(0, 0, 0, 0.8) 0px 3px 7px -3px;
+}

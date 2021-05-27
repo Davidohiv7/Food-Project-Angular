@@ -1,0 +1,341 @@
+#FormContainer {
+    margin-bottom: 2rem;
+    width: 750px;
+    height: auto;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-radius: 2rem;
+    color: #575757;
+    background-color: #FFFAF6;
+}
+
+/* GENERAL PROPERTIES */
+
+#FormContainer textarea {
+    width: 95%;
+    height: 70px;
+    border: 2px solid #9e9e9e;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    resize: none;
+    background-color: #fdfbfa;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 12px;
+}
+
+#FormContainer textarea:focus {
+    outline: none !important;
+    border: 3px #ffa401 solid;
+    height: 68px;
+}
+
+#FormContainer input {
+    border: 2px solid #9e9e9e;
+    border-radius: 0.5rem;
+    padding-left: 0.3rem;
+    background-color: #fdfbfa;
+    height: 16px;
+}
+
+#FormContainer input:focus {
+    outline: none !important;
+    border: 3px #ffa401 solid;
+    height: 14px;
+}
+
+#FormContainer select {
+    color: #888888;
+    font-size: 12px;
+    border: 2px solid #9e9e9e;
+    background-color: #fdfbfa;
+    border-radius: 9rem;
+    height: 16px;
+    appearance: none;
+    background: url(../../../../assets/img/icon/arrowIcon.png) no-repeat right;
+    -webkit-appearance: none;
+}
+
+#FormContainer select:hover {
+    cursor: pointer;
+  }
+
+#FormContainer select:active {
+  outline: none;
+  border: 3px #ffa401 solid;
+}
+
+
+#FormContainer ul {
+    color: #888888;
+    border: 2px solid #9e9e9e;
+    background-color: #fdfbfa;
+    border-radius: 0.5rem;
+    font-size: 12px;
+}
+
+/* LEFT SIDE: BACKGROUND IMAGE AN TITLE */
+
+
+#FLeft {
+    grid-column: 1/2;
+    /* background-color: #FCB86F; */
+    background-image: url(../../../../assets/img/form/op1.jpg);
+    background-size:     cover;
+    background-repeat:   no-repeat;
+    background-position: center center;
+    border-top-left-radius: 2rem;
+    border-bottom-left-radius: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+#FLeft > span{
+    text-align: center;
+    color: #F9B724;
+    font-size: 3rem;
+    font-weight: 600;
+    text-shadow: 0px 4px 3px rgba(0,0,0,0.3),
+    0px 8px 13px rgba(0,0,0,0.3),
+    0px 18px 23px rgba(0,0,0,0.3);
+    padding: 1rem;
+    margin-bottom: 14rem;
+    /* transform: rotate(-22deg); */
+}
+
+
+/* RIGHT SIDE: ALL THE FORM */
+
+#FRight {
+    grid-column: 2/4;
+    border-top-right-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+#FRight > div{
+    margin-top: 0.3rem;
+}
+
+
+/* Title*/
+
+#FRight > span{
+    grid-column: 1/2;
+    font-size: 3rem;
+    font-weight: 600;
+    color: #F9B724 ;
+    text-shadow: 0px 4px 3px rgba(0,0,0,0.1),
+    0px 8px 13px rgba(0,0,0,0.1),
+    0px 18px 23px rgba(0,0,0,0.1);
+    justify-self: start;
+}
+
+/* Recipe name input*/
+
+#RecipeNameContainer {
+    grid-column: 2/3;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+/* Summary input*/
+
+#SummaryContainer {
+    grid-column: 1/3;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+
+/* Instructions input*/
+
+#InstructionsContainer {
+    grid-column: 1/3;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+
+
+/* score input*/
+
+#ScoreContainer {
+    grid-column: 1/2;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+#ScoreContainerIconsContainer > img {
+    width: 1rem;
+}
+
+#ScoreContainerIconsContainer > img:hover {
+    cursor: pointer;
+    box-shadow: rgba(255, 209, 74, 0.5) 2px 2px 4px 2px, rgba(255, 209, 74, 0.5) 2px 2px 16px 2px;
+    background-color: rgba(255, 209, 74, 0.5);
+    border-radius: 50%;
+}
+
+.ScoreSelectedButton {
+    box-shadow: rgba(255, 209, 74, 0.5) 2px 2px 4px 2px, rgba(255, 209, 74, 0.5) 2px 2px 16px 2px;
+    background-color: rgba(255, 209, 74, 0.5);
+    border-radius: 50%;
+}
+
+/* healthiness score input*/
+
+#HealthinessScoreContainer {
+    grid-column: 2/3;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0rem 0rem 0rem 1rem;
+}
+
+#HealthinessScoreContainerIconsContainer > img {
+    width: 1rem;
+}
+
+#HealthinessScoreContainerIconsContainer > img:hover {
+    cursor: pointer;
+    box-shadow: rgba(224, 77, 77, 0.5) 2px 2px 4px 2px, rgba(224, 77, 77, 0.5) 2px 2px 16px 2px;
+    background-color: rgba(224, 77, 77, 0.5);
+    border-radius: 50%;
+}
+
+.HealthScoreSelectedButton {
+    box-shadow: rgba(224, 77, 77, 0.5) 2px 2px 4px 2px, rgba(224, 77, 77, 0.5) 2px 2px 16px 2px;
+    background-color: rgba(224, 77, 77, 0.5);
+    border-radius: 50%;
+}
+
+/* image form */
+
+#ImageContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0rem 1rem 0rem 0rem;
+}
+
+#ImageContainer > img {
+    margin-top: 0.3rem;
+    color: #888888;
+    border: 2px solid #9e9e9e;
+    background-color: #fdfbfa;
+    border-radius: 0.5rem;
+    width: 170px;
+    height: 110px;
+    font-size: 12px;
+    text-align: center;
+}
+
+#ImageInputContainer {
+    display: flex;
+    justify-content: flex-start;
+    align-content: center;
+}
+
+#ImageInputContainer > input{
+    width: 165px;
+    height: 18px;
+    border-radius: 2rem;
+}
+
+#ImageInputContainer > input:focus{
+    height: 17px;
+    border-radius: 2rem;
+}
+
+
+
+#ImageInputContainer img{
+    width: 1.3rem;
+    margin-right: 5px;
+    background-color: transparent;
+    transform: translate(-23px);
+}
+
+#ImageInputContainer img:hover {
+    cursor: pointer;
+    border-radius: 50%;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
+
+/* types select form */
+
+#SelectContainer {
+    margin: 0rem 0rem 0rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+
+
+#SelectContainer > select {
+    height: 1.5rem;
+    width: 200px;
+}
+
+#SelectContainer > ul {
+    margin-top: 0.3rem;
+    padding: 0rem;
+    width: 195px;
+    height: 110px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    overflow-y: auto;
+}
+
+#SelectContainer li {
+    margin-left: 1rem;
+}
+
+
+/* Subtmit button  */
+
+#SubmitContainer {
+    grid-column: 1/3;
+    display: flex;
+    justify-content: center;
+}
+
+#SubmitContainer > button{
+    margin: 0.2rem 2rem;
+    width: 10rem;
+    height: 2rem;
+    border: none;
+    border-radius: 2rem;
+    background-color: #ED8B5E;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #FCF3E9;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
+#SubmitContainer > button:hover {
+    cursor: pointer;
+    box-shadow: rgba(50, 50, 93, 0.4) 0px 8px 12px -2px, rgba(0, 0, 0, 0.75) 0px 3px 11px -3px;
+}
+
+#SubmitContainer > button:focus {
+    border: none;
+    height: 2rem;
+}

@@ -3,8 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { Recipe } from '../../../models/recipe'
 //Importo la store
 import { Store, select } from '@ngrx/store'
-//Importo la action que despachare
-import { GetRecipes } from '../../store/app.actions'
 //Importo el selector
 import { getRecipesInPageSelector } from '../../store/app.selectors'
 
@@ -26,10 +24,6 @@ export class RecipeCardsComponent implements OnInit {
   ngOnInit(): void {
     //Aqui subscribo mi variable al store
     this.store.pipe(select(getRecipesInPageSelector)).subscribe(data => this.recipes$ = data)
-    //Aqui le digo que cada vez que renderice, invoque la funcion de obtener recetas. Pero solo si no hay
-    if(this.recipes$ && this.recipes$.length === 0) {
-      this.store.dispatch(GetRecipes({queryName: ''}))
-    } 
   }
 
 }

@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http'
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects'
@@ -23,7 +24,8 @@ import { RecipeCardsComponent } from './components/recipe-cards/recipe-cards.com
 import { PagesComponent } from './components/pages/pages.component';
 import { RecipeCardComponent } from './components/recipe-cards/recipe-card/recipe-card.component';
 
-import { MainReducer } from './store/app.reducer'
+import { MainReducer } from './store/app.reducer';
+import { RecipeFormComponent } from './components/create-recipe/recipe-form/recipe-form.component'
 
 
 @NgModule({
@@ -39,7 +41,8 @@ import { MainReducer } from './store/app.reducer'
     FiltersComponent,
     RecipeCardsComponent,
     PagesComponent,
-    RecipeCardComponent
+    RecipeCardComponent,
+    RecipeFormComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +53,8 @@ import { MainReducer } from './store/app.reducer'
     StoreDevtoolsModule.instrument({
       maxAge: 25
     }),
-    EffectsModule.forRoot([AppEffects])
+    EffectsModule.forRoot([AppEffects]),
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

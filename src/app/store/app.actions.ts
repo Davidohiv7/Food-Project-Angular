@@ -18,6 +18,12 @@ export const ERROR_GETTING_DIET_TYPES = '[app] ERROR_GETTING_DIET_TYPES'
 export const SORT_RECIPES = '[app] SORT_RECIPES'
 export const FILTER_RECIPES = '[app] FILTER_RECIPES'
 
+export const SET_LOADING = '[app] SET_LOADING'
+
+export const REMOVE_PREVIOUS_PAGE = '[app] REMOVE_PREVIOUS_PAGE'
+
+export const SET_SIGN = '[app] SET_SIGN'
+
 //AQUI CREO LAS ACTIONS
 
 // ACTION: Solicitud API de recetas ---------------------------------------------------------------------------------
@@ -43,3 +49,9 @@ export const ErrorGettingDietTypes = createAction(ERROR_GETTING_DIET_TYPES, prop
 export const SortRecipes = createAction(SORT_RECIPES, props<{newSortedRecipeList: any[]}>())
 //Action para filtrar las recetas 
 export const FilterRecipes = createAction(FILTER_RECIPES, props<{newFilteredRecipeList: any[]}>())
+//Action para modificar el Loading
+export const SetLoading = createAction(SET_LOADING, props<{loadingState: boolean}>())
+//Action para hacer las transiciones
+export const RemovePreviousPage = createAction(REMOVE_PREVIOUS_PAGE)
+//Action para hacer las transiciones
+export const SetSign = createAction(SET_SIGN, props<{signMessage: string}>())

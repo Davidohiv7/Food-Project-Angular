@@ -182,3 +182,7 @@
     margin-top: 1rem;
     font-size: 2rem;
 }
+
+#loadingCards {
+    width: 12rem;
+}

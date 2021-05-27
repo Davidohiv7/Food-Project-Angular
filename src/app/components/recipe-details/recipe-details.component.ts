@@ -13,15 +13,17 @@ import { ActivatedRoute } from '@angular/router';
 export class RecipeDetailsComponent implements OnInit {
 
   paramsID: string;
-  recipeDetails: any;
+  recipeDetails: any = true
   dietsSign: string;
   scoreArray: number[];
   healthScoreArray: number[];
   errorMesage: string;
+  isLoading: boolean;
 
   constructor(private route: ActivatedRoute, private recipeDetailService: RecipeDetailsService) { }
 
   ngOnInit(): void {
+    this.isLoading = true;
     const routeParams = this.route.snapshot.paramMap;
     this.paramsID = routeParams.get('id');
     if(this.paramsID) {
@@ -30,10 +32,11 @@ export class RecipeDetailsComponent implements OnInit {
         this.dietsSign = capitalizeArray(details.diets).join(', ')
         this.scoreArray = createArrayFromNumber(Math.round(details.spoonacularScore / 10))
         this.healthScoreArray = createArrayFromNumber(Math.round(details.healthScore / 10))
+        this.isLoading = false
       },
       error => {
         this.errorMesage = error.error.message
-        this.recipeDetails = true
+        this.isLoading = false
       });
     }
     

@@ -14,7 +14,8 @@
     <div id='HRecipesContainer'>
         <app-filters></app-filters>
 
-        <div id='HCardsPagesContainer'>
+        <img *ngIf="isLoading$" id='loadingCards' src='../../../assets/img/icon/loadingIcon3.png' alt='loadingIcon' />
+        <div *ngIf="!isLoading$" id='HCardsPagesContainer'>
             <app-recipe-cards></app-recipe-cards>
             <app-pages></app-pages>
         </div>

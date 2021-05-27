@@ -1,6 +1,7 @@
 <div id='RDContainer' *ngIf="recipeDetails">
-    
-    <div *ngIf="!errorMesage" id='RDWindow'>
+
+    <img *ngIf="isLoading" id='loadingCards' src='../../../assets/img/icon/loadingIcon3.png' alt='loadingIcon' />
+    <div *ngIf="!errorMesage && !isLoading"  id='RDWindow'>
         <div id='RDMainContainer'>
             <img id='RDImage' src={{recipeDetails.image}} alt={{recipeDetails.title}}/>
 
@@ -44,7 +45,7 @@
                 </div>
 
                 <div>
-                    <span class='RDDetailsTitle'>Helthiness score (1-10):</span>
+                    <span class='RDDetailsTitle'>Healthiness score (1-10):</span>
                     <div>
                         <!-- Aqui va el iterador para crear varios iconos -->
                         <img class='healthScoreIcon' src='../../../assets/img/icon/redbellpeppericon.png' *ngFor="let number of healthScoreArray" id="{{'healthScoreIcon' + number}}" alt='icon' />

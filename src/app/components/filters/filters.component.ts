@@ -5,7 +5,7 @@ import { DietType } from '../../../models/dietType'
 //Importo la store
 import { Store, select } from '@ngrx/store'
 //Importo las actions que despachare
-import { GetTypes, SortRecipes, FilterRecipes } from '../../store/app.actions'
+import { GetTypes, SortRecipes, FilterRecipes, RemovePreviousPage, GetRecipes } from '../../store/app.actions'
 //Importo el selector
 import { getDietTypesSelector, getSortedRecipesListSelector, getRecipesListSelector } from '../../store/app.selectors'
 //Importo la funcion organizadora
@@ -44,9 +44,14 @@ export class FiltersComponent implements OnInit {
   }
 
   FilterRecipes(e) {
+    this.store.dispatch(RemovePreviousPage())
     //Aqui el valor debo asignarselo a cada uno
     const newFilteredArray = filterArray([...this.recipesList$], e.target.value)
-    this.store.dispatch(FilterRecipes({newFilteredRecipeList: newFilteredArray}))
+    setTimeout(() => this.store.dispatch(FilterRecipes({newFilteredRecipeList: newFilteredArray})), 10); 
+  }
+
+  GetAllRecipes() {
+    this.store.dispatch(GetRecipes({queryName: ''}))
   }
 
 }

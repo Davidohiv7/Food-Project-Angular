@@ -1,7 +1,7 @@
 import { createReducer, on } from '@ngrx/store';
 import { Recipe } from '../../models/recipe'
 import { DietType } from '../../models/dietType'
-import { AddGottenRecipes, ErrorGettingRecipes, UpdatePage, AddGottenDietTypes, ErrorGettingDietTypes, SortRecipes, FilterRecipes} from './app.actions'
+import { AddGottenRecipes, ErrorGettingRecipes, UpdatePage, AddGottenDietTypes, ErrorGettingDietTypes, SortRecipes, FilterRecipes, SetLoading, RemovePreviousPage, SetSign} from './app.actions'
 
 export interface appState {
     recipesList: Recipe[];
@@ -38,13 +38,15 @@ export const MainReducer = createReducer(initialState,
                 numerOfPages: Math.ceil(action.recipes.length / 9),
                 page: 1,
                 recipesInPage: action.recipes.slice(0 , 9)
-            }
+            },
+            loading: false
         })
     ),
     on(ErrorGettingRecipes, (state, action) => (
         {
             ...state, 
-            searchSign: action.message
+            searchSign: action.message,
+            loading: false
         })
     ),
     on(UpdatePage, (state, action) => (
@@ -90,6 +92,27 @@ export const MainReducer = createReducer(initialState,
               recipesInPage:  action.newFilteredRecipeList.slice(0, 9)
             },
             loading: false
+        })
+    ),
+    on(SetLoading, (state, action) => (
+        {
+            ...state,
+            loading: action.loadingState
+        })
+    ),
+    on(RemovePreviousPage, (state, action) => (
+        {
+            ...state,
+            pages: {
+                ...state.pages,
+                recipesInPage: []
+              },
+        })
+    ),
+    on(SetSign, (state, action) => (
+        {
+            ...state,
+            searchSign: action.signMessage
         })
     ),
 )
