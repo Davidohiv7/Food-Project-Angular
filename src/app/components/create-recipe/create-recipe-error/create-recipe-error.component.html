@@ -1,0 +1,6 @@
+<div id='ErrorsContainer'>
+    <button (click)="onClick()">X</button>
+        <div class='ErrorTypeContainer'>
+                <span *ngFor="let error of errorData$" >{{error}}</span>
+        </div>
+</div>

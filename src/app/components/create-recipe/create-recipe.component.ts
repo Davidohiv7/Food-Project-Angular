@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+//Importo la store
+import { Store, select } from '@ngrx/store'
+//Importo el selector
+import { getCreateRecipeResponses } from '../../store/app.selectors'
 
 @Component({
   selector: 'app-create-recipe',
@@ -7,9 +11,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateRecipeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private store: Store<any>) { }
+
+  createRecipesResponse$: any;
 
   ngOnInit(): void {
+    //Aqui subscribo mi variable al store
+    this.store.pipe(select(getCreateRecipeResponses)).subscribe(r => this.createRecipesResponse$ = r)
   }
 
 }

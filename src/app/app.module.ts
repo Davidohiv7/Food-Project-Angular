@@ -25,7 +25,9 @@ import { PagesComponent } from './components/pages/pages.component';
 import { RecipeCardComponent } from './components/recipe-cards/recipe-card/recipe-card.component';
 
 import { MainReducer } from './store/app.reducer';
-import { RecipeFormComponent } from './components/create-recipe/recipe-form/recipe-form.component'
+import { RecipeFormComponent } from './components/create-recipe/recipe-form/recipe-form.component';
+import { CreateRecipeSuccessComponent } from './components/create-recipe/create-recipe-success/create-recipe-success.component';
+import { CreateRecipeErrorComponent } from './components/create-recipe/create-recipe-error/create-recipe-error.component'
 
 
 @NgModule({
@@ -42,7 +44,9 @@ import { RecipeFormComponent } from './components/create-recipe/recipe-form/reci
     RecipeCardsComponent,
     PagesComponent,
     RecipeCardComponent,
-    RecipeFormComponent
+    RecipeFormComponent,
+    CreateRecipeSuccessComponent,
+    CreateRecipeErrorComponent
   ],
   imports: [
     BrowserModule,

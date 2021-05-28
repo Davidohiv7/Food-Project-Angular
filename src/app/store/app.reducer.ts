@@ -1,7 +1,7 @@
 import { createReducer, on } from '@ngrx/store';
 import { Recipe } from '../../models/recipe'
 import { DietType } from '../../models/dietType'
-import { AddGottenRecipes, ErrorGettingRecipes, UpdatePage, AddGottenDietTypes, ErrorGettingDietTypes, SortRecipes, FilterRecipes, SetLoading, RemovePreviousPage, SetSign} from './app.actions'
+import { AddGottenRecipes, ErrorGettingRecipes, UpdatePage, AddGottenDietTypes, ErrorGettingDietTypes, SortRecipes, FilterRecipes, SetLoading, RemovePreviousPage, SetSign, CreateRecipeError, CreateRecipeSuccess} from './app.actions'
 
 export interface appState {
     recipesList: Recipe[];
@@ -10,6 +10,7 @@ export interface appState {
     pages: any;
     loading: boolean;
     searchSign: string;
+    createRecipeResponses: any;
 }
 
 const initialState: appState = {
@@ -24,6 +25,10 @@ const initialState: appState = {
     },
     loading: false,
     searchSign: '',
+    createRecipeResponses: {
+        success: false,
+        error: false,
+    }
 }
 
 
@@ -113,6 +118,24 @@ export const MainReducer = createReducer(initialState,
         {
             ...state,
             searchSign: action.signMessage
+        })
+    ),
+    on(CreateRecipeSuccess, (state, action) => (
+        {
+            ...state,
+            createRecipeResponses: {
+                success: action.response,
+                error: false,
+            }
+        })
+    ),
+    on(CreateRecipeError, (state, action) => (
+        {
+            ...state,
+            createRecipeResponses: {
+                success: false,
+                error: action.error,
+            }
         })
     ),
 )

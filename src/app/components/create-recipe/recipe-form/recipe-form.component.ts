@@ -4,18 +4,17 @@ import { DietType } from '../../../../models/dietType'
 //Importo la store
 import { Store, select } from '@ngrx/store'
 //Importo la accion
-import { GetTypes } from '../../../store/app.actions'
+import { GetTypes, CreateRecipe, CreateRecipeError } from '../../../store/app.actions'
 //Importo el selector
 import { getDietTypesSelector } from '../../../store/app.selectors'
 //Importo las clases para crear los forms
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl } from '@angular/forms';
 //Importo funciones personalizadas que hice para modificar o crear informacion
 import { createArrayFromNumber, manageDietType } from '../../../../assets/utils/arrayFunctions'
 import { getFormErrors } from '../../../../assets/utils/formFunctions'
 //Validadores personalizados
 import { requireValidator ,onlyContainValidator, lengthValidator, isURLValidator, emptyArrayValidator } from './create-recipe-validators.directive'
-//Importo mi servicio de crear recetar
-import { CreateRecipeService } from '../../../services/create-recipe.service'
+
 
 @Component({
   selector: 'app-recipe-form',
@@ -24,7 +23,7 @@ import { CreateRecipeService } from '../../../services/create-recipe.service'
 })
 export class RecipeFormComponent implements OnInit {
 
-  constructor(private store: Store<any>, private createRecipeService: CreateRecipeService) { }
+  constructor(private store: Store<any>) { }
 
   newRecipeForm = new FormGroup({
     title: new FormControl('', [requireValidator('recipe name'), 
@@ -44,11 +43,9 @@ export class RecipeFormComponent implements OnInit {
     types: new FormControl([], emptyArrayValidator()),
   });
 
-  scoresArray: number[] = createArrayFromNumber(10)
+  scoresArray: number[] = createArrayFromNumber(10).map(n => n*10)
   imagePeviewLink: string;
   dietTypes$: DietType[];
-
-  createRecipeServiceResponse$: any;
 
   ngOnInit(): void {
     //Aqui subscribo mi variable al store
@@ -59,13 +56,21 @@ export class RecipeFormComponent implements OnInit {
   }
 
   onSubmit() {
-    //Aqui me suscribo a la respuesta del servicio de crear usuario, ESTO SEGURAMENTE LO PASARE AL COMPONENTE EXTERNO PARA RENDEREIZAR LOS AVISOS
-    this.createRecipeService.createRecipe(this.newRecipeForm).subscribe(response => {
-      this.createRecipeServiceResponse$ = response
-      console.log(response)
-    }, error => {
-      console.log(error)
-    })
+    const errors = getFormErrors(this.newRecipeForm)
+    if(errors.length === 0) {
+      this.store.dispatch(CreateRecipe({form: {...this.newRecipeForm.value}}))
+      this.imagePeviewLink = ''
+      return this.newRecipeForm.setValue({
+        title: '',
+        summary: '',
+        instructions: '',
+        spoonacularScore: '',
+        healthScore: '',
+        image: '',
+        types: [],
+      })
+    }
+    this.store.dispatch(CreateRecipeError({error: [...errors]}))
   }
 
   setScore(number) {

@@ -17,11 +17,6 @@ export class CreateRecipeService {
 
 
   createRecipe(form:any):Observable<any> {
-    const errors = getFormErrors(form)
-    if(errors.length > 0) {
-        return throwError(getFormErrors(form))
-    }
-    console.log(errors)
-    return this.httpClient.post<any>(this.url, form.value)
+    return this.httpClient.post<any>(this.url, form)
   }
 }

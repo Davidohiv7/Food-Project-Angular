@@ -24,6 +24,10 @@ export const REMOVE_PREVIOUS_PAGE = '[app] REMOVE_PREVIOUS_PAGE'
 
 export const SET_SIGN = '[app] SET_SIGN'
 
+export const CREATE_RECIPE = '[app] CREATE_RECIPE'
+export const CREATE_RECIPE_SUCCESS = '[app] CREATE_RECIPE_SUCCESS'
+export const CREATE_RECIPE_ERROR = '[app] CREATE_RECIPE_ERROR'
+
 //AQUI CREO LAS ACTIONS
 
 // ACTION: Solicitud API de recetas ---------------------------------------------------------------------------------
@@ -55,3 +59,11 @@ export const SetLoading = createAction(SET_LOADING, props<{loadingState: boolean
 export const RemovePreviousPage = createAction(REMOVE_PREVIOUS_PAGE)
 //Action para hacer las transiciones
 export const SetSign = createAction(SET_SIGN, props<{signMessage: string}>())
+
+// ACTION: Solicitud API de crear receta -----------------------------------------------------------------------
+//Action para despachar desde componente y que sea interceptada por el Effect en el proceso de crear la receta
+export const CreateRecipe = createAction(CREATE_RECIPE, props<{form:any}>())
+//Actions para actualizar el estado global, la cual la despacha el Effect, NO los componentes
+export const CreateRecipeSuccess = createAction(CREATE_RECIPE_SUCCESS, props<{response:any}>())
+export const CreateRecipeError = createAction(CREATE_RECIPE_ERROR, props<{error:any}>())
+// -----

@@ -37,7 +37,13 @@ export const getLoadingSelector = createSelector(
     getRecipesState,
     (state: appState) => state.loading
 );
+
 export const getSignSelector = createSelector(
     getRecipesState,
     (state: appState) => state.searchSign
+);
+
+export const getCreateRecipeResponses = createSelector(
+    getRecipesState,
+    (state: appState) => state.createRecipeResponses
 );
